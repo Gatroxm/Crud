@@ -1,4 +1,4 @@
-<?php namespace Controller;
+<?php namespace Controllers;
 
 	use Models\Usuarios as Usuarios;
 
@@ -26,7 +26,7 @@
 				$limite = 900;
 				if(in_array($_FILES['imagen']['type'], $extenciones) && $_FILES['imagen']['size'] <= $limite * 1024){
 					$nombre = date('is').$_FILES['imagen']['name'];
-					$ruta = "Views/tmplate/images/avatar/".$nombre;
+					$ruta = "Views".DS."tmplate".DS."images".DS."avatar".DS.$nombre;
 					move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
 					$this->usuarios->set("name", $_POST['name']);
 					$this->usuarios->set("lastname", $_POST['lastname']);
@@ -69,7 +69,7 @@
 
 		public function eliminar($id){
 			$this->usuarios->set("id", $id);
-			$datos = $this->usuarios->delete();
+			$this->usuarios->delete();
 			header("location/Users");
 		}
 
