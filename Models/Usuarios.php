@@ -1,11 +1,11 @@
 <?php namespace Models;
 
-	use Config\Conexion as Conexion;
+	use Config\Modelo as Modelo;
 
-	class Usuarios extends Conexion{
+	class Usuarios extends Modelo{
 
 		#parametros 
-		
+
 		private $id;
 		private $name;
 		private $lastname;
@@ -18,22 +18,6 @@
 		private $password;
 
 		#Methodos 
-
-		public function set($atributo, $contenido){
-
-			$this->$atributo = $contenido;
-
-		}
-
-		public function list(){
-
-			$sql = $this->conexion->prepare("SELECT * FROM usuarios ORDER BY id DESC");
-			if ($sql->execute();) {
-				$data = $sql->fetchAll(\PDO::FETCH_OBJ);
-				return $sql;
-			}
-
-		}
 
 		public function add(){
 
@@ -72,22 +56,6 @@
 				die();
 			}
 
-		}
-
-		public function delete(){
-			$sql = $this->conexion->prepare("DELETE FROM usuarios WHERE id = :id");
-			$sql->bindParam(":id", $this->id, \PDO::PARAM_INT);
-			$sql->execute();
-		}
-
-		public function view(){
-			$sql = $this->conexion->prepare("SELECT * FROM usuarios WHERE id = :id");
-			$sql->bindParam(":id", $this->id, \PDO::PARAM_INT);
-			if ($sql->execute();) {
-				$campos = $sql->fetch(\PDO::FETCH_OBJ);
-				return $campos;
-			}
-			
 		}
 
 	}
