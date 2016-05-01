@@ -20,7 +20,7 @@
 		public function list(){
 
 			$sql = $this->conexion->prepare("SELECT * FROM $this->tabla ORDER BY id DESC");
-			if ($sql->execute();) {
+			if ($sql->execute()) {
 				$data = $sql->fetchAll(\PDO::FETCH_OBJ);
 				return $sql;
 			}
@@ -36,7 +36,7 @@
 		public function view(){
 			$sql = $this->conexion->prepare("SELECT * FROM $this->tabla WHERE id = :id");
 			$sql->bindParam(":id", $this->clave, \PDO::PARAM_INT);
-			if ($sql->execute();) {
+			if ($sql->execute()) {
 				$campos = $sql->fetch(\PDO::FETCH_OBJ);
 				return $campos;
 			}
