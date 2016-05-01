@@ -1,0 +1,33 @@
+.fondo_menu{
+	background-color: #375A7F;
+}
+.titulo_aplicacion{
+	color: #fff;
+	cursor: pointer;
+}
+.menu ul {
+	padding: 0;
+	margin: 20px 0;
+}
+.menu ul li{
+	position: relative;
+	list-style: none;
+	display: inline-block;
+}
+.menu ul li a{
+	color: #fff;
+	padding: 19.5px;
+}
+.menu ul li a:hover{
+	color: #00bc8c;
+}
+.texto_rigth{
+	text-align: right;
+}
+footer{
+	position: absolute;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}

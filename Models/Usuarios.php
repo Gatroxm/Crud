@@ -16,12 +16,13 @@
 		private $image;
 		private $type;
 		private $password;
+		protected $table = 'usuarios'
 
 		#Methodos 
 
 		public function add(){
 
-			$sql = $this->conexion->prepare("INSERT INTO usuarios (name, lastname, address, email, phone, admissiondate, image, type, password) VALUES(:name, :lastname, :address, :email, :phone, :admissiondate, :image, :type, md5(:password))");
+			$sql = $this->conexion->prepare("INSERT INTO $this->table (name, lastname, address, email, phone, admissiondate, image, type, password) VALUES(:name, :lastname, :address, :email, :phone, :admissiondate, :image, :type, md5(:password))");
 			$sql->bindParam(":name", $this->name, \PDO::PARAM_STR);
 			$sql->bindParam(":lastname", $this->lastname, \PDO::PARAM_STR);
 			$sql->bindParam(":address", $this->address, \PDO::PARAM_STR);
@@ -38,9 +39,9 @@
 		public function edit(){
 
 			if($this->password == ""){ 
-				$sql = $this->conexion->prepare("UPDATE usuarios SET name = :name, lastname = :lastname, address = :address, email = :email, phone = :phone, admissiondate = :admissiondate, type = :type WHERE id = :id");
+				$sql = $this->conexion->prepare("UPDATE $this->table SET name = :name, lastname = :lastname, address = :address, email = :email, phone = :phone, admissiondate = :admissiondate, type = :type WHERE id = :id");
 			}else{
-				$sql = $this->conexion->prepare("UPDATE usuarios SET name = :name, lastname = :lastname, address = :address, email = :email, phone = :phone, admissiondate = :admissiondate, type = :type, password = md5(:password) WHERE id = :id");
+				$sql = $this->conexion->prepare("UPDATE $this->table SET name = :name, lastname = :lastname, address = :address, email = :email, phone = :phone, admissiondate = :admissiondate, type = :type, password = md5(:password) WHERE id = :id");
 				$sql->bindParam(":password", $this->password, \PDO::PARAM_STR);
 			}
 			$sql->bindParam(":name", $this->name, \PDO::PARAM_STR);

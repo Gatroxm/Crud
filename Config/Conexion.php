@@ -5,7 +5,7 @@
 		protected $conexion;
 
 		public function __construct(){
-			$this->conexion = new PDO('mysql:dbname=crud;host=localhos','root','');
+			$this->conexion = new \PDO('mysql:dbname=crud;host=localhos','root','');
 		}
 
 	}

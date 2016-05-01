@@ -13,7 +13,7 @@
 		}
 
 		public function index(){
-			$datos = $this->usuarios->list('usuarios');
+			$datos = $this->usuarios->list();
 			return $datos;
 		}
 
@@ -26,7 +26,7 @@
 				$limite = 900;
 				if(in_array($_FILES['imagen']['type'], $extenciones) && $_FILES['imagen']['size'] <= $limite * 1024){
 					$nombre = date('is').$_FILES['imagen']['name'];
-					$ruta = "Views".DS."tmplate".DS."images".DS."avatar".DS.$nombre;
+					$ruta = "Views".DS."template".DS."images".DS."avatar".DS.$nombre;
 					move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
 					$this->usuarios->set("name", $_POST['name']);
 					$this->usuarios->set("lastname", $_POST['lastname']);
@@ -38,7 +38,7 @@
 					$this->usuarios->set("type", $_POST['type']);
 					$this->usuarios->set("password", $_POST['password']);
 					$this->add();
-					header("location/Users");
+					header("location/usuarios");
 				}
 			}
 		}
@@ -57,7 +57,7 @@
 				$this->usuarios->set("type", $_POST['type']);
 				$this->usuarios->set("password", $_POST['password']);
 				$this->edit();
-				header("location/Users");
+				header("location/usuarios");
 			}
 		}
 
@@ -70,7 +70,7 @@
 		public function eliminar($id){
 			$this->usuarios->set("id", $id);
 			$this->usuarios->delete();
-			header("location/Users");
+			header("location/usuarios");
 		}
 
 	}

@@ -2,9 +2,9 @@
 	
 	class Autoload{
 
-		public static function arranque(){
+		public static function run(){
 			spl_autoload_register(function($class){
-				$ruta = srt_replace("\\", "/", $class) . ".php";
+				$ruta = str_replace("\\", "/", $class) . ".php";
 				include_once $ruta;
 			});
 		} 
