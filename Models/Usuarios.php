@@ -1,6 +1,6 @@
 <?php namespace Models;
 
-	use Config\Modelo as Modelo;
+	use Models\Modelo as Modelo;
 
 	class Usuarios extends Modelo{
 

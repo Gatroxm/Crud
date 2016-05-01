@@ -11,13 +11,13 @@
 
 		#methodos
 
-		public function set($atributo, $contenido){
+		public static function set($atributo, $contenido){
 
 			$this->$atributo = $contenido;
 
 		}
 
-		public function list(){
+		public static function list(){
 
 			$sql = $this->conexion->prepare("SELECT * FROM $this->tabla ORDER BY id DESC");
 			if ($sql->execute()) {
@@ -27,7 +27,7 @@
 
 		}
 
-		public function delete(){
+		public static function delete(){
 			$sql = $this->conexion->prepare("DELETE FROM $this->tabla WHERE id = :id");
 			$sql->bindParam(":id", $this->clave, \PDO::PARAM_INT);
 			$sql->execute();
