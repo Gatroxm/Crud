@@ -2,7 +2,7 @@
 
 	use Models\Usuarios as Usuarios;
 
-	class UserController{
+	class usuariosController{
 
 		#parametros
 		protected $usuarios;
@@ -13,13 +13,13 @@
 		}
 
 		public function index(){
-			$datos = $this->usuarios->list();
+			$datos = $this->usuarios->listar();
 			return $datos;
 		}
 
 		public function agregar(){
 			if(!$_POST){
-				$datos = $this->usuarios->list();
+				$datos = $this->usuarios->listar();
 				return $datos;
 			}else{
 				$extenciones = array("image/jpeg", "image/png", "image/gif", "image/jpg");
@@ -75,5 +75,5 @@
 
 	}
 
-	$users = new UserController();
+	$users = new usuariosController();
 ?>

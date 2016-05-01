@@ -1,6 +1,6 @@
 <?php namespace Models;
 
-	use Config\Conexion as Conexion;
+	use Config\Conexion;
 
 	abstract class Modelo extends Conexion{
 
@@ -11,15 +11,15 @@
 
 		#methodos
 
-		public static function set($atributo, $contenido){
+		public function set($atributo, $contenido){
 
 			$this->$atributo = $contenido;
 
 		}
 
-		public static function list(){
+		public function listar(){
 
-			$sql = $this->conexion->prepare("SELECT * FROM $this->tabla ORDER BY id DESC");
+			$sql = $this->conexion->prepare("SELECT * FROM $this->table ORDER BY id DESC");
 			if ($sql->execute()) {
 				$data = $sql->fetchAll(\PDO::FETCH_OBJ);
 				return $sql;
@@ -27,14 +27,14 @@
 
 		}
 
-		public static function delete(){
-			$sql = $this->conexion->prepare("DELETE FROM $this->tabla WHERE id = :id");
+		public function delete(){
+			$sql = $this->conexion->prepare("DELETE FROM $this->table WHERE id = :id");
 			$sql->bindParam(":id", $this->clave, \PDO::PARAM_INT);
 			$sql->execute();
 		}
 
 		public function view(){
-			$sql = $this->conexion->prepare("SELECT * FROM $this->tabla WHERE id = :id");
+			$sql = $this->conexion->prepare("SELECT * FROM $this->table WHERE id = :id");
 			$sql->bindParam(":id", $this->clave, \PDO::PARAM_INT);
 			if ($sql->execute()) {
 				$campos = $sql->fetch(\PDO::FETCH_OBJ);

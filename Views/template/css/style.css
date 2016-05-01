@@ -1,9 +1,10 @@
 .fondo_menu{
 	background-color: #375A7F;
 }
-.titulo_aplicacion{
-	color: #fff;
-	cursor: pointer;
+.titulo_aplicacion {
+    color: #fff;
+    cursor: pointer;
+    text-shadow: -1px 1px 1px #ccc;
 }
 .menu ul {
 	padding: 0;

@@ -16,7 +16,7 @@
 		private $image;
 		private $type;
 		private $password;
-		protected $table = 'usuarios'
+		protected $table = 'usuarios';
 
 		#Methodos 
 
@@ -27,7 +27,7 @@
 			$sql->bindParam(":lastname", $this->lastname, \PDO::PARAM_STR);
 			$sql->bindParam(":address", $this->address, \PDO::PARAM_STR);
 			$sql->bindParam(":email", $this->email, \PDO::PARAM_STR);
-			$sql->bindParam(":phone", $this->phone, \PDO::);
+			$sql->bindParam(":phone", $this->phone, \PDO::PARAM_STR);
 			$sql->bindParam(":admissiondate", $this->admissiondate, \PDO::PARAM_DATE);
 			$sql->bindParam(":image", $this->image, \PDO::PARAM_STR);
 			$sql->bindParam(":type", $this->type, \PDO::PARAM_STR);
@@ -48,7 +48,7 @@
 			$sql->bindParam(":lastname", $this->lastname, \PDO::PARAM_STR);
 			$sql->bindParam(":address", $this->address, \PDO::PARAM_STR);
 			$sql->bindParam(":email", $this->email, \PDO::PARAM_STR);
-			$sql->bindParam(":phone", $this->phone, \PDO::);
+			$sql->bindParam(":phone", $this->phone, \PDO::PARAM_STR);
 			$sql->bindParam(":admissiondate", $this->admissiondate, \PDO::PARAM_DATE);
 			$sql->bindParam(":type", $this->type, \PDO::PARAM_STR);
 			$sql->bindParam(":id", $this->id, \PDO::PARAM_INT);

@@ -28,9 +28,7 @@
 			}else{
 				print "No se encontro la vista";
 			}
-
 		}
 
 	}
-
 ?>
