@@ -22,7 +22,7 @@
 			$sql = $this->conexion->prepare("SELECT * FROM $this->table ORDER BY id DESC");
 			if ($sql->execute()) {
 				$data = $sql->fetchAll(\PDO::FETCH_OBJ);
-				return $sql;
+				return $data;
 			}
 
 		}

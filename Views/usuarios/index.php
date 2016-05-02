@@ -1,4 +1,4 @@
-<!-- <div class="ed-container">
+<div class="ed-container">
 	<table class="table table-striped table-hover ">
 		  <thead>
 		    <tr>
@@ -13,17 +13,17 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<?php while ($datos = $sql->fetch(\PDO::FETCH_OBJ)) {  ?>
+		  	<?php foreach ($datos as $dato){  ?>
 		  	<tr>
-		  			<td><?php echo $datos->name; ?></td>
-					<td><?php echo $datos->lastname; ?></td>
-			    	<td><?php echo $datos->address; ?></td>
-			    	<td><?php echo $datos->email; ?></td>
-			    	<td><?php echo $datos->phone; ?></td>
-			    	<td><?php echo $datos->admissiondate; ?></td>
-			    	<td><?php echo $datos->type; ?></td>
+		  			<td><?php echo $dato->name; ?></td>
+					<td><?php echo $dato->lastname; ?></td>
+			    	<td><?php echo $dato->address; ?></td>
+			    	<td><?php echo $dato->email; ?></td>
+			    	<td><?php echo $dato->phone; ?></td>
+			    	<td><?php echo $dato->admissiondate; ?></td>
+			    	<td><?php echo $dato->type; ?></td>
 			</tr>
 			<?php } ?>
 		  </tbody>
 		</table> 
-</div> -->
+</div>
