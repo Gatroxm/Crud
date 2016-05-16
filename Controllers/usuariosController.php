@@ -37,7 +37,7 @@
 					$this->usuarios->set("image", $nombre);
 					$this->usuarios->set("type", $_POST['type']);
 					$this->usuarios->set("password", $_POST['password']);
-					$this->add();
+					$this->usuarios->add();
 					header("location/usuarios");
 				}
 			}
@@ -45,8 +45,8 @@
 
 		public function editar($id){
 			if (!$_POST){
-				$this->usuarios->set("id", $id);
-				$datos = $this->usuarios->view();
+				$datos = $this->usuarios->view($id);
+				return $datos;
 			}else{
 				$this->usuarios->set("name", $_POST['name']);
 				$this->usuarios->set("lastname", $_POST['lastname']);
@@ -56,14 +56,13 @@
 				$this->usuarios->set("admissiondate", $_POST['admissiondate']);
 				$this->usuarios->set("type", $_POST['type']);
 				$this->usuarios->set("password", $_POST['password']);
-				$this->edit();
+				$this->usuarios->edit();
 				header("location/usuarios");
 			}
 		}
 
 		public function ver($id){
-			$this->usuarios->set("id", $id);
-			$datos = $this->usuarios->view();
+			$datos = $this->usuarios->view($id);
 			return $datos;
 		}
 

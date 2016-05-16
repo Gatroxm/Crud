@@ -33,9 +33,9 @@
 			$sql->execute();
 		}
 
-		public function view(){
+		public function view($clave){
 			$sql = $this->conexion->prepare("SELECT * FROM $this->table WHERE id = :id");
-			$sql->bindParam(":id", $this->clave, \PDO::PARAM_INT);
+			$sql->bindParam(":id", $clave, \PDO::PARAM_INT);
 			if ($sql->execute()) {
 				$campos = $sql->fetch(\PDO::FETCH_OBJ);
 				return $campos;

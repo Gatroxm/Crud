@@ -6,16 +6,16 @@
 
 		#parametros 
 
-		private $id;
-		private $name;
-		private $lastname;
-		private $address;
-		private $email;
-		private $phone;
-		private $admissiondate;
-		private $image;
-		private $type;
-		private $password;
+		protected $id;
+		protected $name;
+		protected $lastname;
+		protected $address;
+		protected $email;
+		protected $phone;
+		protected $admissiondate;
+		protected $image;
+		protected $type;
+		protected $password;
 		protected $table = 'usuarios';
 
 		#Methodos 
@@ -28,7 +28,7 @@
 			$sql->bindParam(":address", $this->address, \PDO::PARAM_STR);
 			$sql->bindParam(":email", $this->email, \PDO::PARAM_STR);
 			$sql->bindParam(":phone", $this->phone, \PDO::PARAM_STR);
-			$sql->bindParam(":admissiondate", $this->admissiondate, \PDO::PARAM_DATE);
+			$sql->bindParam(":admissiondate", $this->admissiondate, \PDO::PARAM_STR);
 			$sql->bindParam(":image", $this->image, \PDO::PARAM_STR);
 			$sql->bindParam(":type", $this->type, \PDO::PARAM_STR);
 			$sql->bindParam(":password", $this->password, \PDO::PARAM_STR);
